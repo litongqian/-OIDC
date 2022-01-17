@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Node OAuth2 Demo</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+        <a id="login">Login with Feishu</a>
+
+<script>
+  // fill in your cliend_id
+  //const client_id = '7e015d8ce32370079895';
+
+  //const authorize_uri = 'https://github.com/login/oauth/authorize';
+  //const redirect_uri = 'http://localhost:8080/oauth/redirect';
+  const authorizationURI=`https://keycloak.dev.longbridge-inc.com/auth/realms/longbridge-inc/protocol/openid-connect/auth`;
+  const redirect_uri=`http://localhost:8080/api/rest_j/v1/user/oauth/auth`
+  const client_id=`dss-test`
+
+  let url=`${authorizationURI}?scope=openid+email+profile+picture&response_type=code&redirect_uri=${redirect_uri}&state=074C5oUUd9&client_id=${client_id}`;
+
+  const link = document.getElementById('login');
+  //link.href = `${authorize_uri}?client_id=${client_id}&redirect_uri=${redirect_uri}`;
+  link.href=url;
+</script>
+
+</body>
+
+</html>
